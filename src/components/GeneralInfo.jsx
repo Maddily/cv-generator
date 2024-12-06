@@ -8,7 +8,7 @@ export default function GeneralInfo({
 }) {
   if (isEditingGeneralInfo) {
     return (
-      <>
+      <div className="general">
         <Input
           type="text"
           label="name"
@@ -30,15 +30,15 @@ export default function GeneralInfo({
           onChange={generalInfoHandler}
           data={generalInfo}
         />
-      </>
+      </div>
     );
   }
 
   return (
-    <>
+    <div className="general">
       <DataField label="name" data={generalInfo.name} />
       <DataField label="email address" data={generalInfo.email} />
       <DataField label="phone number" data={generalInfo.phone} />
-    </>
+    </div>
   );
 }
