@@ -1,6 +1,7 @@
 // `filled` is a boolean that indicates if all fields in this fieldset are filled
 export default function Button({
   name,
+  experience,
   buttonDisabled,
   filled,
   setIsEditingCaller,
@@ -16,7 +17,12 @@ export default function Button({
   };
 
   return (
-    <button className={name} disabled={buttonDisabled} onClick={onClick}>
+    <button
+      data-exp={experience}
+      className={name}
+      disabled={buttonDisabled}
+      onClick={onClick}
+    >
       {name}
     </button>
   );
