@@ -1,5 +1,7 @@
 import Input from './Input';
 import DataField from './DataField';
+import Icon from '@mdi/react';
+import { mdiMinusBox } from '@mdi/js';
 import '../styles/PracticalExp.css';
 
 export default function PracticalExp({
@@ -11,6 +13,13 @@ export default function PracticalExp({
   if (isEditingPracticalExp) {
     return (
       <div className="experience" data-index={index}>
+        <Icon
+          onClick={(e) => practicalExpHandler(e, index, true)}
+          className="remove"
+          title="Remove education"
+          path={mdiMinusBox}
+          size={1}
+        />
         <Input
           type="text"
           label="company name"
@@ -56,6 +65,13 @@ export default function PracticalExp({
 
   return (
     <div className="experience">
+      <Icon
+        onClick={(e) => practicalExpHandler(e, index, true)}
+        className="remove"
+        title="Remove education"
+        path={mdiMinusBox}
+        size={1}
+      />
       <DataField label="company name" data={practicalExp.company} />
       <DataField label="position title" data={practicalExp.position} />
       <DataField
