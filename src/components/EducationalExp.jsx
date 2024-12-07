@@ -1,5 +1,7 @@
 import Input from './Input';
 import DataField from './DataField';
+import Icon from '@mdi/react';
+import { mdiMinusBox } from '@mdi/js';
 
 export default function EducationalExp({
   index,
@@ -10,6 +12,13 @@ export default function EducationalExp({
   if (isEditingEducationalExp) {
     return (
       <div className="experience" data-index={index}>
+        <Icon
+          onClick={(e) => educationalExpHandler(e, index, true)}
+          className="remove"
+          title="Remove education"
+          path={mdiMinusBox}
+          size={1}
+        />
         <Input
           type="text"
           label="school name"
@@ -37,6 +46,13 @@ export default function EducationalExp({
 
   return (
     <div className="experience">
+      <Icon
+        onClick={(e) => educationalExpHandler(e, index, true)}
+        className="remove"
+        title="Remove education"
+        path={mdiMinusBox}
+        size={1}
+      />
       <DataField label="school name" data={educationalExp.school} />
       <DataField label="title of study" data={educationalExp.title} />
       <DataField label="date of study" data={educationalExp.date} />
