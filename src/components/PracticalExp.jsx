@@ -16,7 +16,7 @@ export default function PracticalExp({
         <Icon
           onClick={(e) => practicalExpHandler(e, index, true)}
           className="remove"
-          title="Remove education"
+          title="Remove position"
           path={mdiMinusBox}
           size={1}
         />
@@ -68,7 +68,7 @@ export default function PracticalExp({
       <Icon
         onClick={(e) => practicalExpHandler(e, index, true)}
         className="remove"
-        title="Remove education"
+        title="Remove position"
         path={mdiMinusBox}
         size={1}
       />
