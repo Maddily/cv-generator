@@ -1,5 +1,6 @@
 import Input from './Input';
 import DataField from './DataField';
+import '../styles/PracticalExp.css'
 
 export default function PracticalExp({
   isEditingPracticalExp,
