@@ -1,4 +1,15 @@
-// `filled` is a boolean that indicates if all fields in this fieldset are filled
+/**
+ * 
+ * @param {string} name - The text content of the button.
+ * @param {string} experience - educational/practical
+ * @param {boolean} buttonDisabled - Indicates if the button should be disabled.
+ * @param {boolean} filled - Indicates if the fields in the fieldset containing
+ * this button are all filled.
+ * @param {function(boolean)} setIsEditingCaller - A function that calls
+ * `setIsEditing` state setter for the fieldset the button is associated with,
+ * to indicate if the fieldset is being edited.
+ * @returns {JSX.Element}
+ */
 export default function Button({
   name,
   experience,
@@ -6,7 +17,7 @@ export default function Button({
   filled,
   setIsEditingCaller,
 }) {
-  const onClick = (e) => {
+  const handleButtonClick = (e) => {
     e.preventDefault();
 
     if (name === 'submit' && filled) {
@@ -21,7 +32,7 @@ export default function Button({
       data-exp={experience}
       className={name + ' no-print'}
       disabled={buttonDisabled}
-      onClick={onClick}
+      onClick={handleButtonClick}
     >
       {name}
     </button>
