@@ -1,5 +1,5 @@
-import Input from "./Input";
-import DataField from "./DataField";
+import Input from './Input';
+import DataField from './DataField';
 
 /**
  * A component to render Input/DataField components wrapped in a container.
@@ -16,39 +16,53 @@ export default function GeneralInfo({
   generalInfoHandler,
   generalInfo,
 }) {
+  const dataFields = [
+    {
+      type: 'text',
+      label: 'name',
+      placeholder: 'Your name here',
+      data: generalInfo.name,
+    },
+    {
+      type: 'email',
+      label: 'email address',
+      placeholder: 'someone@example.com',
+      data: generalInfo.email,
+    },
+    {
+      type: 'tel',
+      label: 'phone number',
+      placeholder: 'Your phone number',
+      data: generalInfo.phone,
+    },
+  ];
+
   if (isEditingGeneralInfo) {
     return (
       <div className="general">
-        <Input
-          type="text"
-          label="name"
-          placeholder="Your name here"
-          onChange={generalInfoHandler}
-          data={generalInfo}
-        />
-        <Input
-          type="email"
-          label="email address"
-          placeholder="someone@example.com"
-          onChange={generalInfoHandler}
-          data={generalInfo}
-        />
-        <Input
-          type="tel"
-          label="phone number"
-          placeholder="Your phone number"
-          onChange={generalInfoHandler}
-          data={generalInfo}
-        />
+        {dataFields.map((dataField) => (
+          <Input
+            key={dataField.label}
+            type={dataField.type}
+            label={dataField.label}
+            placeholder={dataField.placeholder}
+            onChange={generalInfoHandler}
+            data={generalInfo}
+          />
+        ))}
       </div>
     );
   }
 
   return (
     <div className="general">
-      <DataField label="name" data={generalInfo.name} />
-      <DataField label="email address" data={generalInfo.email} />
-      <DataField label="phone number" data={generalInfo.phone} />
+      {dataFields.map((dataField) => (
+        <DataField
+          key={dataField.label}
+          label={dataField.label}
+          data={dataField.data}
+        />
+      ))}
     </div>
   );
 }
