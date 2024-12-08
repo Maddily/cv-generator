@@ -9,18 +9,25 @@ export default function EducationalExp({
   educationalExpHandler,
   educationalExp,
 }) {
-  const inputs = [
+  const inputFields = [
     {
       type: 'text',
       label: 'school name',
       placeholder: 'e.g., Harvard University',
+      data: educationalExp.school,
     },
     {
       type: 'text',
       label: 'title of study',
       placeholder: 'e.g., B.Sc. Computer Science',
+      data: educationalExp.title,
     },
-    { type: 'date', label: 'date of study', placeholder: 'e.g., 2018-2022' },
+    {
+      type: 'date',
+      label: 'date of study',
+      placeholder: 'e.g., 2018-2022',
+      data: educationalExp.date,
+    },
   ];
 
   if (isEditingEducationalExp) {
@@ -33,7 +40,7 @@ export default function EducationalExp({
           path={mdiMinusBox}
           size={1}
         />
-        {inputs.map((input) => (
+        {inputFields.map((input) => (
           <Input
             key={input.label}
             type={input.type}
@@ -56,9 +63,13 @@ export default function EducationalExp({
         path={mdiMinusBox}
         size={1}
       />
-      <DataField label="school name" data={educationalExp.school} />
-      <DataField label="title of study" data={educationalExp.title} />
-      <DataField label="date of study" data={educationalExp.date} />
+      {inputFields.map((inputField) => (
+        <DataField
+          key={inputField.label}
+          label={inputField.label}
+          data={inputField.data}
+        />
+      ))}
     </div>
   );
 }
