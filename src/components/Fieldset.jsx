@@ -40,7 +40,7 @@ export default function Fieldset({
       return (
         <Icon
           onClick={addMoreExperience}
-          className="add"
+          className="add no-print"
           title={title}
           path={mdiPlusBox}
           size={1}
