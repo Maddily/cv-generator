@@ -4,7 +4,14 @@ import GeneralInfo from './GeneralInfo';
 import EducationalExp from './EducationalExp';
 import PracticalExp from './PracticalExp';
 
-export default function Form() {
+export default function Form({
+  isEditingGeneralInfo,
+  isEditingEducationalExp,
+  isEditingPracticalExp,
+  setIsEditingGeneralInfoCaller,
+  setIsEditingEducationalExpCaller,
+  setIsEditingPracticalExpCaller
+}) {
   const [generalInfo, setgeneralInfo] = useState({
     name: '',
     email: '',
@@ -26,9 +33,6 @@ export default function Form() {
       to: '',
     },
   ]);
-  const [isEditingGeneralInfo, setIsEditingGeneralInfo] = useState(true);
-  const [isEditingEducationalExp, setIsEditingEducationalExp] = useState(true);
-  const [isEditingPracticalExp, setIsEditingPracticalExp] = useState(true);
 
   const handleGeneralInfoChange = (e) => {
     const key = e.target.name;
@@ -68,7 +72,7 @@ export default function Form() {
         legend="general information"
         filled={generalInfoFilled}
         isEditing={isEditingGeneralInfo}
-        setIsEditingCaller={(bool) => setIsEditingGeneralInfo(bool)}
+        setIsEditingCaller={setIsEditingGeneralInfoCaller}
       >
         <GeneralInfo
           isEditingGeneralInfo={isEditingGeneralInfo}
@@ -80,7 +84,7 @@ export default function Form() {
         legend="educational experience"
         filled={educationalExpFilled}
         isEditing={isEditingEducationalExp}
-        setIsEditingCaller={(bool) => setIsEditingEducationalExp(bool)}
+        setIsEditingCaller={setIsEditingEducationalExpCaller}
         addEducationalExpHandler={(exp) =>
           setEducationalExp([...educationalExp, exp])
         }
@@ -109,7 +113,7 @@ export default function Form() {
         legend="practical experience"
         filled={practicalExpFilled}
         isEditing={isEditingPracticalExp}
-        setIsEditingCaller={(bool) => setIsEditingPracticalExp(bool)}
+        setIsEditingCaller={setIsEditingPracticalExpCaller}
         addPracticalExpHandler={(exp) =>
           setPracticalExp([...practicalExp, exp])
         }
