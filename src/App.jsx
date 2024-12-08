@@ -20,6 +20,15 @@ function App() {
     }
   }, [setCvReady, isEditingGeneralInfo, isEditingEducationalExp, isEditingPracticalExp]);
 
+  const handlePrinting = () => {
+    const buttons = document.querySelectorAll('.no-print');
+    buttons.forEach((button) => (button.style.display = 'none'));
+
+    window.print();
+
+    buttons.forEach((button) => (button.style.display = 'block'));
+  };
+
   return (
     <>
       <Form
@@ -34,6 +43,13 @@ function App() {
           setIsEditingPracticalExp(bool)
         }
       />
+      <button
+        disabled={!cvReady}
+        onClick={handlePrinting}
+        className="generate-cv no-print"
+      >
+        Generate CV
+      </button>
     </>
   );
 }
