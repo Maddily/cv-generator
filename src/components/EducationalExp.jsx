@@ -3,6 +3,18 @@ import DataField from './DataField';
 import Icon from '@mdi/react';
 import { mdiMinusBox } from '@mdi/js';
 
+/**
+ * A component to render educational experience.
+ * If the fieldset is in editing mode, input elements are rendered.
+ * If not, the data is displayed normally.
+ *
+ * @param {number} index - The index of the given educational experience.
+ * @param {boolean} isEditingEducationalExp - Indicates whether the fieldset is in editing mode.
+ * @param {function(event, number, boolean)} educationalExpHandler - A function that calls
+ * another function to handle change in input and experience removal.
+ * @param {object} educationalExp - An object representing educational experience.
+ * @returns {JSX.Element}
+ */
 export default function EducationalExp({
   index,
   isEditingEducationalExp,
