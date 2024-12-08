@@ -2,7 +2,9 @@ import Input from './Input';
 import DataField from './DataField';
 
 /**
- * A component to render Input/DataField components wrapped in a container.
+ * A component to render general information.
+ * If the fieldset is in editing mode, input elements are rendered.
+ * If not, the data is displayed normally.
  *
  * @param {boolean} isEditingGeneralInfo - Indicates if general info fieldset
  * is in editing mode.
