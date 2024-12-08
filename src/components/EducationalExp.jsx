@@ -14,7 +14,7 @@ export default function EducationalExp({
       <div className="experience" data-index={index}>
         <Icon
           onClick={(e) => educationalExpHandler(e, index, true)}
-          className="remove"
+          className="remove no-print"
           title="Remove education"
           path={mdiMinusBox}
           size={1}
@@ -48,7 +48,7 @@ export default function EducationalExp({
     <div className="experience">
       <Icon
         onClick={(e) => educationalExpHandler(e, index, true)}
-        className="remove"
+        className="remove no-print"
         title="Remove education"
         path={mdiMinusBox}
         size={1}
