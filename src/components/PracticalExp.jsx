@@ -4,6 +4,18 @@ import Icon from '@mdi/react';
 import { mdiMinusBox } from '@mdi/js';
 import '../styles/PracticalExp.css';
 
+/**
+ * A component to render practical experience.
+ * If the fieldset is in editing mode, input elements are rendered.
+ * If not, the data is displayed normally.
+ *
+ * @param {number} index - The index of the given practical experience.
+ * @param {boolean} isEditingPracticalExp - Indicates whether the fieldset is in editing mode.
+ * @param {function(event, number, boolean)} practicalExpHandler - A function that calls
+ * another function to handle change in input and experience removal.
+ * @param {object} practicalExp - An object representing practical experience.
+ * @returns {JSX.Element}
+ */
 export default function PracticalExp({
   index,
   isEditingPracticalExp,
