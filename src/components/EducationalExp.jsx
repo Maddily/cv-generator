@@ -9,6 +9,20 @@ export default function EducationalExp({
   educationalExpHandler,
   educationalExp,
 }) {
+  const inputs = [
+    {
+      type: 'text',
+      label: 'school name',
+      placeholder: 'e.g., Harvard University',
+    },
+    {
+      type: 'text',
+      label: 'title of study',
+      placeholder: 'e.g., B.Sc. Computer Science',
+    },
+    { type: 'date', label: 'date of study', placeholder: 'e.g., 2018-2022' },
+  ];
+
   if (isEditingEducationalExp) {
     return (
       <div className="experience" data-index={index}>
@@ -19,27 +33,16 @@ export default function EducationalExp({
           path={mdiMinusBox}
           size={1}
         />
-        <Input
-          type="text"
-          label="school name"
-          placeholder="e.g., Harvard University"
-          onChange={(e) => educationalExpHandler(e, index)}
-          data={educationalExp}
-        />
-        <Input
-          type="text"
-          label="title of study"
-          placeholder="e.g., B.Sc. Computer Science"
-          onChange={(e) => educationalExpHandler(e, index)}
-          data={educationalExp}
-        />
-        <Input
-          type="date"
-          label="date of study"
-          placeholder="e.g., 2018-2022"
-          onChange={(e) => educationalExpHandler(e, index)}
-          data={educationalExp}
-        />
+        {inputs.map((input) => (
+          <Input
+            key={input.label}
+            type={input.type}
+            label={input.label}
+            placeholder={input.placeholder}
+            onChange={(e) => educationalExpHandler(e, index)}
+            data={educationalExp}
+          />
+        ))}
       </div>
     );
   }
