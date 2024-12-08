@@ -1,6 +1,16 @@
 import Input from "./Input";
 import DataField from "./DataField";
 
+/**
+ * A component to render Input/DataField components wrapped in a container.
+ *
+ * @param {boolean} isEditingGeneralInfo - Indicates if general info fieldset
+ * is in editing mode.
+ * @param {function(ChangeEvent)} generalInfoHandler - Updates generalInfo state
+ * on input change.
+ * @param {object} generalInfo - Data for the general information section.
+ * @returns {JSX.Element}
+ */
 export default function GeneralInfo({
   isEditingGeneralInfo,
   generalInfoHandler,
