@@ -1,5 +1,6 @@
 /**
- * 
+ * A component that renders a button.
+ *
  * @param {string} name - The text content of the button.
  * @param {string} experience - educational/practical
  * @param {boolean} buttonDisabled - Indicates if the button should be disabled.
