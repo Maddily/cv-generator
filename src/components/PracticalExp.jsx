@@ -22,6 +22,30 @@ export default function PracticalExp({
   practicalExpHandler,
   practicalExp,
 }) {
+  const inputFields = [
+    {
+      label: 'company name',
+      placeholder: 'e.g., TechCorp',
+      data: practicalExp.company,
+    },
+    {
+      label: 'position title',
+      placeholder: 'e.g., Software Engineer',
+      data: practicalExp.position,
+    },
+    { label: 'main responsibilities', data: practicalExp.responsibilities },
+    {
+      label: 'from',
+      placeholder: 'e.g., 2020',
+      data: practicalExp.from,
+    },
+    {
+      label: 'to',
+      placeholder: 'e.g., 2023',
+      data: practicalExp.to,
+    },
+  ];
+
   if (isEditingPracticalExp) {
     return (
       <div className="experience" data-index={index}>
@@ -32,20 +56,20 @@ export default function PracticalExp({
           path={mdiMinusBox}
           size={1}
         />
-        <Input
-          type="text"
-          label="company name"
-          placeholder="e.g., TechCorp"
-          onChange={(e) => practicalExpHandler(e, index)}
-          data={practicalExp}
-        />
-        <Input
-          type="text"
-          label="position title"
-          placeholder="e.g., Software Engineer"
-          onChange={(e) => practicalExpHandler(e, index)}
-          data={practicalExp}
-        />
+        {inputFields.map((inputField, i) => {
+          if (i <= 1) {
+            return (
+              <Input
+                key={inputField.label}
+                type="text"
+                label={inputField.label}
+                placeholder={inputField.placeholder}
+                onChange={(e) => practicalExpHandler(e, index)}
+                data={practicalExp}
+              />
+            );
+          }
+        })}
         <div className="field">
           <label htmlFor="responsibilities">main responsibilities</label>
           <textarea
@@ -57,20 +81,20 @@ export default function PracticalExp({
             onChange={(e) => practicalExpHandler(e, index)}
           ></textarea>
         </div>
-        <Input
-          type="number"
-          label="from"
-          placeholder="e.g., 2020"
-          onChange={(e) => practicalExpHandler(e, index)}
-          data={practicalExp}
-        />
-        <Input
-          type="number"
-          label="to"
-          placeholder="e.g., 2023"
-          onChange={(e) => practicalExpHandler(e, index)}
-          data={practicalExp}
-        />
+        {inputFields.map((inputField, i) => {
+          if (i > 2) {
+            return (
+              <Input
+                key={inputField.label}
+                type="number"
+                label={inputField.label}
+                placeholder={inputField.placeholder}
+                onChange={(e) => practicalExpHandler(e, index)}
+                data={practicalExp}
+              />
+            );
+          }
+        })}
       </div>
     );
   }
@@ -84,14 +108,13 @@ export default function PracticalExp({
         path={mdiMinusBox}
         size={1}
       />
-      <DataField label="company name" data={practicalExp.company} />
-      <DataField label="position title" data={practicalExp.position} />
-      <DataField
-        label="main responsibilities"
-        data={practicalExp.responsibilities}
-      />
-      <DataField label="from" data={practicalExp.from} />
-      <DataField label="to" data={practicalExp.to} />
+      {inputFields.map((inputField) => (
+        <DataField
+          key={inputField.label}
+          label={inputField.label}
+          data={inputField.data}
+        />
+      ))}
     </div>
   );
 }
