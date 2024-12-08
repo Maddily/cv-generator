@@ -19,7 +19,7 @@ export default function Button({
   return (
     <button
       data-exp={experience}
-      className={name}
+      className={name + ' no-print'}
       disabled={buttonDisabled}
       onClick={onClick}
     >
