@@ -4,13 +4,30 @@ import GeneralInfo from './GeneralInfo';
 import EducationalExp from './EducationalExp';
 import PracticalExp from './PracticalExp';
 
+/**
+ * A component that renders a form with three Fieldset instances.
+ *
+ * @param {boolean} isEditingGeneralInfo - The state of the general info
+ * fieldset. It indicates if it's in editing mode.
+ * @param {boolean} isEditingEducationalExp - The state of the educational experience
+ * fieldset. It indicates if it's in editing mode.
+ * @param {boolean} isEditingPracticalExp - The state of the practical experience
+ * fieldset. It indicates if it's in editing mode.
+ * @param {function(boolean)} setIsEditingGeneralInfoCaller - Calls isEditingGeneralInfo
+ * state setter.
+ * @param {function(boolean)} setIsEditingEducationalExpCaller - Calls isEditingEducationalExp
+ * state setter.
+ * @param {function(boolean)} setIsEditingPracticalExpCaller - Calls isEditingPracticalExp
+ * state setter.
+ * @returns {JSX.Element}
+ */
 export default function Form({
   isEditingGeneralInfo,
   isEditingEducationalExp,
   isEditingPracticalExp,
   setIsEditingGeneralInfoCaller,
   setIsEditingEducationalExpCaller,
-  setIsEditingPracticalExpCaller
+  setIsEditingPracticalExpCaller,
 }) {
   const [generalInfo, setgeneralInfo] = useState({
     name: '',
@@ -34,11 +51,26 @@ export default function Form({
     },
   ]);
 
+  /**
+   * Handles updating generalInfo state when the input is changed.
+   *
+   * @param {ChangeEvent} e - The event fired on input change.
+   */
   const handleGeneralInfoChange = (e) => {
     const key = e.target.name;
     setgeneralInfo({ ...generalInfo, [key]: e.target.value });
   };
 
+  /**
+   * Removes or updates an experience object using its associated state setter.
+   *
+   * @param {ChangeEvent} e - The event fired on input change.
+   * @param {number} index - The index of an experience object in its state variable.
+   * @param {object} expType - The experience object.
+   * @param {function(object)} setExpType - A state setter (setEducationalExp or setPracticalExp)
+   * @param {boolean} remove - Indicates if the requested change is to remove
+   * an experience object.
+   */
   const handleExpChange = (e, index, expType, setExpType, remove = false) => {
     if (remove) {
       setExpType(expType.toSpliced(index, 1));
