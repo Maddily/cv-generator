@@ -4,6 +4,22 @@ import { mdiPlusBox } from '@mdi/js';
 import Button from './Button';
 import '../styles/Fieldset.css';
 
+/**
+ * A component to render a fieldset.
+ *
+ * @param {string} legend - The legend of the fieldset.
+ * @param {ReactNode} children - input/data fields to be rendered.
+ * @param {boolean} filled - Indicates whether all fields in this fieldset
+ * are filled.
+ * @param {boolean} isEditing - Indicates whether this fieldset is in editing mode.
+ * @param {function(boolean)} setIsEditingCaller - Calls a state setter to update the mode
+ * of the fieldset (editing or not).
+ * @param {function(Object)} addEducationalExpHandler - Handles adding a new block
+ * of educational experience. It receives an experience object as argument.
+ * @param {function(Object)} addPracticalExpHandler - Handles adding a new block
+ * of practical experience. It receives an experience object as argument.
+ * @returns {JSX.Element}
+ */
 export default function Fieldset({
   legend,
   children,
@@ -16,7 +32,12 @@ export default function Fieldset({
   const [editButtonDisabled, setEditButtonDisabled] = useState(true);
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true);
 
+  // I'm using Effect hook to avoid infinite rendering.
   useEffect(() => {
+    /**
+     * Disable/enable edit/submit buttons based on whether
+     * the fieldset is in editing mode and if the fields are filled.
+     */
     if (isEditing) {
       setEditButtonDisabled(true);
       if (filled) {
@@ -30,6 +51,13 @@ export default function Fieldset({
     }
   }, [isEditing, filled]);
 
+  /**
+   * Displays an svg button to add a new block of experience
+   * (EducationalExp/PracticalExp component instance)
+   * and gives it an appropriate title.
+   *
+   * @returns {JSX.Element}
+   */
   const displayAddButton = () => {
     if (legend.split(' ')[1] === 'experience') {
       const title =
@@ -50,8 +78,11 @@ export default function Fieldset({
   };
 
   /**
-   * Clicking 'add' button forces a click on edit button
-   * and adds another experience component.
+   * Handles adding a new block of experience
+   * (EducationalExp/PracticalExp component instance).
+   * Clicking 'add' button forces a click on edit button,
+   * switching the fieldset to editing mode to let users
+   * start filling in the new experience data.
    */
   const addMoreExperience = () => {
     let editButton;
