@@ -18,7 +18,7 @@ export default function GeneralInfo({
   generalInfoHandler,
   generalInfo,
 }) {
-  const dataFields = [
+  const inputFields = [
     {
       type: 'text',
       label: 'name',
@@ -42,12 +42,12 @@ export default function GeneralInfo({
   if (isEditingGeneralInfo) {
     return (
       <div className="general">
-        {dataFields.map((dataField) => (
+        {inputFields.map((inputField) => (
           <Input
-            key={dataField.label}
-            type={dataField.type}
-            label={dataField.label}
-            placeholder={dataField.placeholder}
+            key={inputField.label}
+            type={inputField.type}
+            label={inputField.label}
+            placeholder={inputField.placeholder}
             onChange={generalInfoHandler}
             data={generalInfo}
           />
@@ -58,11 +58,11 @@ export default function GeneralInfo({
 
   return (
     <div className="general">
-      {dataFields.map((dataField) => (
+      {inputFields.map((inputField) => (
         <DataField
-          key={dataField.label}
-          label={dataField.label}
-          data={dataField.data}
+          key={inputField.label}
+          label={inputField.label}
+          data={inputField.data}
         />
       ))}
     </div>
