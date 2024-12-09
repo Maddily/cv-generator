@@ -29,9 +29,13 @@ function App() {
     const noPrint = document.querySelectorAll('.no-print');
     noPrint.forEach((element) => (element.style.display = 'none'));
 
+    const experiences = document.querySelectorAll('.experience');
+    experiences.forEach((experience) => experience.style.marginTop = '-20px');
+
     window.print();
 
     noPrint.forEach((element) => (element.style.display = 'block'));
+    experiences.forEach((experience) => experience.style.marginTop = '0');
   };
 
   return (
