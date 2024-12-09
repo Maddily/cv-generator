@@ -79,8 +79,8 @@ export default function PracticalExp({
             id="responsibilities"
             placeholder="e.g., Developed web apps"
             onChange={(e) => practicalExpHandler(e, index)}
-            aria-required='true'
-            autoComplete='on'
+            aria-required="true"
+            autoComplete="on"
           ></textarea>
         </div>
         {inputFields.map((inputField, i) => {
@@ -110,13 +110,20 @@ export default function PracticalExp({
         path={mdiMinusBox}
         size={1}
       />
-      {inputFields.map((inputField) => (
-        <DataField
-          key={inputField.label}
-          label={inputField.label}
-          data={inputField.data}
-        />
-      ))}
+      <p className="from-to">
+        {inputFields[3].data} - {inputFields[4].data}
+      </p>
+      {inputFields.map((inputField, i) => {
+        if (i < 3) {
+          return (
+            <DataField
+              key={inputField.label}
+              label={inputField.label}
+              data={inputField.data}
+            />
+          );
+        }
+      })}
     </div>
   );
 }

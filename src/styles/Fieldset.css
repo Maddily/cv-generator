@@ -54,6 +54,10 @@ legend {
   border-bottom: none;
 }
 
+.add {
+  margin-bottom: 10px;
+}
+
 .add,
 .remove {
   cursor: pointer;
