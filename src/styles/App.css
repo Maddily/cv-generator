@@ -26,11 +26,11 @@ footer p {
 
 footer a {
   color: #0073e6;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 footer a:hover {
-  text-decoration: underline;
+  color: #646cff;
 }
 
 @media (max-width: 768px) {
