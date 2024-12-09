@@ -2,6 +2,7 @@ import Input from './Input';
 import DataField from './DataField';
 import Icon from '@mdi/react';
 import { mdiMinusBox } from '@mdi/js';
+import { formatDate } from '../utils';
 import '../styles/PracticalExp.css';
 
 /**
@@ -88,7 +89,7 @@ export default function PracticalExp({
             return (
               <Input
                 key={inputField.label}
-                type="number"
+                type="month"
                 label={inputField.label}
                 placeholder={inputField.placeholder}
                 onChange={(e) => practicalExpHandler(e, index)}
@@ -111,7 +112,7 @@ export default function PracticalExp({
         size={1}
       />
       <p className="from-to">
-        {inputFields[3].data} - {inputFields[4].data}
+        {formatDate(inputFields[3].data)} - {formatDate(inputFields[4].data)}
       </p>
       {inputFields.map((inputField, i) => {
         if (i < 3) {
