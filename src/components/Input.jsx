@@ -29,6 +29,7 @@ export default function Input({
         name={name}
         placeholder={placeholder}
         onChange={onChange}
+        aria-required='true'
       />
     </div>
   );
