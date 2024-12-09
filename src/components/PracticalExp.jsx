@@ -25,31 +25,29 @@ export default function PracticalExp({
 }) {
   const inputFields = [
     {
-      label: 'company name',
-      placeholder: 'e.g., TechCorp',
-      data: practicalExp.company,
-    },
-    {
       label: 'position title',
       placeholder: 'e.g., Software Engineer',
       data: practicalExp.position,
     },
+    {
+      label: 'company name',
+      placeholder: 'e.g., TechCorp',
+      data: practicalExp.company,
+    },
     { label: 'main responsibilities', data: practicalExp.responsibilities },
     {
       label: 'from',
-      placeholder: 'e.g., 2020',
       data: practicalExp.from,
     },
     {
       label: 'to',
-      placeholder: 'e.g., 2023',
       data: practicalExp.to,
     },
   ];
 
   if (isEditingPracticalExp) {
     return (
-      <div className="experience" data-index={index}>
+      <div className="experience experience-editing" data-index={index}>
         <Icon
           onClick={(e) => practicalExpHandler(e, index, true)}
           className="remove no-print"
@@ -78,7 +76,7 @@ export default function PracticalExp({
             className="responsibilities"
             name="responsibilities"
             id="responsibilities"
-            placeholder="e.g., Developed web apps"
+            placeholder="e.g., Developed web apps.&#10;&#10;Note: Separate your responsibilities with newlines to display as bullet points."
             onChange={(e) => practicalExpHandler(e, index)}
             aria-required="true"
             autoComplete="on"
@@ -103,7 +101,7 @@ export default function PracticalExp({
   }
 
   return (
-    <div className="experience">
+    <div className="experience experience-submitted">
       <Icon
         onClick={(e) => practicalExpHandler(e, index, true)}
         className="remove no-print"
@@ -112,7 +110,8 @@ export default function PracticalExp({
         size={1}
       />
       <p className="from-to">
-        {formatDate(inputFields[3].data)} - {formatDate(inputFields[4].data)}
+        {formatDate(inputFields[3].data)} &mdash;{' '}
+        {formatDate(inputFields[4].data)}
       </p>
       {inputFields.map((inputField, i) => {
         if (i < 3) {
