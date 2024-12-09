@@ -1,5 +1,5 @@
 .field {
-  padding: 0 40px 15px 10px;
+  padding: 15px 40px 15px 10px;
   border-bottom: 1px solid #dddddd;
   text-align: left;
   display: flex;
@@ -23,7 +23,7 @@ input {
 
 @media (min-width: 460px) {
   .field {
-    padding: 0 20px 10px;
+    padding: 10px 20px 10px;
     flex-direction: row;
     justify-content: space-between;
     gap: 20px;
@@ -32,7 +32,7 @@ input {
 
 @media (min-width: 600px) {
   .field {
-    padding: 0 30px 10px;
+    padding: 10px 30px 10px;
     gap: 50px;
   }
 }
@@ -51,14 +51,14 @@ input {
 
 @media (min-width: 900px) {
   .field {
-    padding: 0 50px 10px;
+    padding: 10px 50px 10px;
     gap: 130px;
   }
 }
 
 @media (min-width: 1000px) {
   .field {
-    padding: 0 70px 10px;
+    padding: 10px 70px 10px;
   }
 }
 
