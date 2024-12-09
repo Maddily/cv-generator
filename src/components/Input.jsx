@@ -30,6 +30,7 @@ export default function Input({
         placeholder={placeholder}
         onChange={onChange}
         aria-required='true'
+        autoComplete='on'
       />
     </div>
   );

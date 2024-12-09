@@ -80,6 +80,7 @@ export default function PracticalExp({
             placeholder="e.g., Developed web apps"
             onChange={(e) => practicalExpHandler(e, index)}
             aria-required='true'
+            autoComplete='on'
           ></textarea>
         </div>
         {inputFields.map((inputField, i) => {
