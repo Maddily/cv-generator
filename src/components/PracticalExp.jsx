@@ -79,6 +79,7 @@ export default function PracticalExp({
             id="responsibilities"
             placeholder="e.g., Developed web apps"
             onChange={(e) => practicalExpHandler(e, index)}
+            aria-required='true'
           ></textarea>
         </div>
         {inputFields.map((inputField, i) => {
