@@ -1,0 +1,112 @@
+fieldset,
+.fields,
+.experience,
+.general,
+.buttons {
+  display: flex;
+}
+
+fieldset,
+.fields,
+.experience,
+.general {
+  flex-direction: column;
+}
+
+fieldset {
+  padding: 20px 5px 10px;
+  margin-bottom: 5px;
+}
+
+fieldset:last-of-type {
+  margin-bottom: 0;
+}
+
+legend,
+button {
+  text-transform: capitalize;
+}
+
+legend {
+  font-weight: bold;
+}
+
+.fields {
+  align-items: flex-start;
+}
+
+.fields,
+.experience,
+.general {
+  gap: 10px;
+}
+
+.experience,
+.general {
+  width: 100%;
+}
+
+.experience {
+  border-bottom: 2px solid #213547;
+}
+
+.experience:last-of-type {
+  border-bottom: none;
+}
+
+.add,
+.remove {
+  cursor: pointer;
+  align-self: flex-end;
+  transition: transform 400ms ease-out;
+  will-change: transform;
+}
+
+.add:hover,
+.remove:hover {
+  transform: scale(1.1);
+}
+
+.buttons {
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+button {
+  border-color: #213547;
+  padding: 5px 15px;
+  transition: background-color 200ms, color 200ms, border-color 200ms;
+}
+
+button:enabled:hover {
+  background: #213547;
+  color: #fff;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+@media (min-width: 460px) {
+  .buttons {
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 600px) {
+  .buttons {
+    padding-right: 30px;
+  }
+}
+
+@media (min-width: 900px) {
+  .buttons {
+    padding-right: 50px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .buttons {
+    padding-right: 70px;
+  }
+}
