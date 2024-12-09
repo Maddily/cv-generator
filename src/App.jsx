@@ -18,15 +18,20 @@ function App() {
     } else {
       setCvReady(false);
     }
-  }, [setCvReady, isEditingGeneralInfo, isEditingEducationalExp, isEditingPracticalExp]);
+  }, [
+    setCvReady,
+    isEditingGeneralInfo,
+    isEditingEducationalExp,
+    isEditingPracticalExp,
+  ]);
 
   const handlePrinting = () => {
-    const buttons = document.querySelectorAll('.no-print');
-    buttons.forEach((button) => (button.style.display = 'none'));
+    const noPrint = document.querySelectorAll('.no-print');
+    noPrint.forEach((element) => (element.style.display = 'none'));
 
     window.print();
 
-    buttons.forEach((button) => (button.style.display = 'block'));
+    noPrint.forEach((element) => (element.style.display = 'block'));
   };
 
   return (
@@ -50,6 +55,24 @@ function App() {
       >
         Generate CV
       </button>
+      <footer className="no-print">
+        <p>
+          Licensed under{' '}
+          <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+            CC BY-NC-ND 4.0
+          </a>
+        </p>
+        <p>
+          View the source code on{' '}
+          <a href="https://github.com/Maddily/cv-generator">GitHub</a>
+        </p>
+        <p>
+          Favicon&nbsp;
+          <a href="https://www.flaticon.com/free-icons/cv" title="CV icons">
+            CV icon created by Freepik - Flaticon
+          </a>
+        </p>
+      </footer>
     </>
   );
 }
