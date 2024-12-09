@@ -44,7 +44,7 @@ export default function EducationalExp({
 
   if (isEditingEducationalExp) {
     return (
-      <div className="experience" data-index={index}>
+      <div className="experience experience-editing" data-index={index}>
         <Icon
           onClick={(e) => educationalExpHandler(e, index, true)}
           className="remove no-print"
@@ -67,7 +67,7 @@ export default function EducationalExp({
   }
 
   return (
-    <div className="experience">
+    <div className="experience experience-submitted">
       <Icon
         onClick={(e) => educationalExpHandler(e, index, true)}
         className="remove no-print"
