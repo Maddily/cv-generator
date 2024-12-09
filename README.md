@@ -4,6 +4,12 @@ This is a simple CV generator built with React and Vite. Users can fill in their
 ## How to Access CV Generator
 CV Generator is hosted on Netlify. You can access it [here](https://my-react-cv-generator.netlify.app/).
 
+## Features
+- Live preview of the CV
+- Downloadable PDF of the CV
+- Responsive design for all screen sizes
+- Accessibility: Follows web accessibility guidelines to ensure a usable experience for all users.
+
 ## Tech Stack
 - **Vite**: For fast development and bundling.
 - **React**: For building the user interface with reusable components.
