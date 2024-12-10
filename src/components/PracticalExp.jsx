@@ -46,6 +46,8 @@ export default function PracticalExp({
   ];
 
   if (isEditingPracticalExp) {
+    const id = `id-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
+
     return (
       <div className="experience experience-editing" data-index={index}>
         <Icon
@@ -70,12 +72,12 @@ export default function PracticalExp({
           }
         })}
         <div className="field">
-          <label htmlFor="responsibilities">main responsibilities</label>
+          <label htmlFor={id}>main responsibilities</label>
           <textarea
             value={practicalExp.responsibilities}
             className="responsibilities"
             name="responsibilities"
-            id="responsibilities"
+            id={id}
             placeholder="e.g., Developed web apps.&#10;&#10;Note: Separate your responsibilities with newlines to display as bullet points."
             onChange={(e) => practicalExpHandler(e, index)}
             aria-required="true"
