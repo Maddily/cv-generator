@@ -53,6 +53,10 @@ legend {
   padding-top: 0;
 }
 
+.from-to {
+  margin: 0 10px 0 auto;
+}
+
 .add {
   margin-bottom: 10px;
 }
