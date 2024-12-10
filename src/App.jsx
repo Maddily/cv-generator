@@ -66,17 +66,17 @@ function App() {
       <footer className="no-print">
         <p>
           Licensed under{' '}
-          <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+          <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target='_blank'>
             CC BY-NC-ND 4.0
           </a>
         </p>
         <p>
           View the source code on{' '}
-          <a href="https://github.com/Maddily/cv-generator">GitHub</a>
+          <a href="https://github.com/Maddily/cv-generator" target='_blank'>GitHub</a>
         </p>
         <p>
           Favicon&nbsp;
-          <a href="https://www.flaticon.com/free-icons/cv" title="CV icons">
+          <a href="https://www.flaticon.com/free-icons/cv" title="CV icons" target='_blank'>
             CV icon created by Freepik - Flaticon
           </a>
         </p>
