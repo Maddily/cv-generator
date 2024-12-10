@@ -112,7 +112,7 @@ export default function Fieldset({
 
   return (
     <fieldset>
-      <legend><span className='first-letter'>{legend[0]}</span><span className='remaining-letters'>{legend.slice(1)}</span></legend>
+      <legend className={legend.split(' ')[0] === 'contact' ? 'contact' : undefined}><span className='first-letter'>{legend[0]}</span><span className='remaining-letters'>{legend.slice(1)}</span></legend>
       <div className="fields">{children}</div>
       {displayAddButton()}
       <div className="buttons">
