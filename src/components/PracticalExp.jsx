@@ -89,7 +89,6 @@ export default function PracticalExp({
                 key={inputField.label}
                 type="month"
                 label={inputField.label}
-                placeholder={inputField.placeholder}
                 onChange={(e) => practicalExpHandler(e, index)}
                 data={practicalExp}
               />
