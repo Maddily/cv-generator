@@ -30,12 +30,16 @@ function App() {
     noPrint.forEach((element) => (element.style.display = 'none'));
 
     const experiences = document.querySelectorAll('.experience');
-    experiences.forEach((experience) => experience.style.marginTop = '-20px');
+    experiences.forEach((experience) => experience.style.marginTop = '-30px');
+
+    const fields = document.querySelectorAll('.fields');
+    fields.forEach((fieldsElement) => fieldsElement.style.gap = '8px');
 
     window.print();
 
     noPrint.forEach((element) => (element.style.display = 'block'));
     experiences.forEach((experience) => experience.style.marginTop = '0');
+    fields.forEach((fieldsElement) => fieldsElement.style.gap = '0');
   };
 
   return (

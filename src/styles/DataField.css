@@ -5,17 +5,21 @@
   align-items: flex-start;
   text-align: left;
   font-size: 0.99rem;
-  color: #2a2a2a;
+  color: #141414;
+  font-weight: 500;
 }
 
 .data-field:first-of-type {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: bold;
   color: #000;
+  transform: scaleY(0.9);
 }
 
 .data-field:nth-of-type(2) {
+  font-size: 1.2rem;
   font-style: italic;
+  margin-top: -5px;
 }
 
 .main {

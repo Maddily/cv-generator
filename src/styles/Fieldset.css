@@ -14,8 +14,9 @@ fieldset,
 }
 
 fieldset {
-  padding: 20px 5px 10px;
+  padding: 3px 5px 0;
   margin-bottom: 5px;
+  border: 0;
 }
 
 fieldset:last-of-type {
@@ -28,7 +29,21 @@ button {
 }
 
 legend {
-  font-weight: bold;
+  width: 100%;
+  font-family: 'Charter', 'Times New Roman', Times, serif;
+  font-weight: 300;
+  font-size: 1rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #828282;
+  padding-bottom: 5px;
+  padding-left: 0;
+  text-align: left;
+  transform: scale(1.005, 0.8);
+}
+
+.first-letter {
+  font-size: 1.4rem;
 }
 
 .fields {
@@ -51,6 +66,14 @@ legend {
 
 .experience-editing:first-of-type {
   padding-top: 0;
+}
+
+.experience-submitted:first-of-type {
+  margin-top: 3px;
+}
+
+.experience-submitted:last-of-type {
+  margin-bottom: -10px;
 }
 
 .from-to {

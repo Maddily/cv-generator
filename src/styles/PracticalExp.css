@@ -3,6 +3,10 @@
   padding: 5px;
 }
 
+.main {
+  font-size: 0.95rem;
+}
+
 @media (min-width: 460px) {
   .from-to {
     margin-right: 20px;

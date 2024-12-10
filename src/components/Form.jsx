@@ -134,7 +134,7 @@ export default function Form({
         />
       </Fieldset>
       <Fieldset
-        legend="educational experience"
+        legend="education"
         filled={educationalExpFilled}
         isEditing={isEditingEducationalExp}
         setIsEditingCaller={setIsEditingEducationalExpCaller}
@@ -163,7 +163,7 @@ export default function Form({
         })}
       </Fieldset>
       <Fieldset
-        legend="practical experience"
+        legend="experience"
         filled={practicalExpFilled}
         isEditing={isEditingPracticalExp}
         setIsEditingCaller={setIsEditingPracticalExpCaller}
