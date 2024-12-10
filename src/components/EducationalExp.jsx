@@ -2,6 +2,7 @@ import Input from './Input';
 import DataField from './DataField';
 import Icon from '@mdi/react';
 import { mdiMinusBox } from '@mdi/js';
+import { formatDate } from '../utils';
 
 /**
  * A component to render educational experience.
@@ -35,16 +36,18 @@ export default function EducationalExp({
       data: educationalExp.title,
     },
     {
-      type: 'date',
-      label: 'date of study',
-      placeholder: 'e.g., 2018-2022',
-      data: educationalExp.date,
+      label: 'from',
+      data: educationalExp.from,
+    },
+    {
+      label: 'to',
+      data: educationalExp.to,
     },
   ];
 
   if (isEditingEducationalExp) {
     return (
-      <div className="experience" data-index={index}>
+      <div className="experience experience-editing" data-index={index}>
         <Icon
           onClick={(e) => educationalExpHandler(e, index, true)}
           className="remove no-print"
@@ -52,22 +55,39 @@ export default function EducationalExp({
           path={mdiMinusBox}
           size={1}
         />
-        {inputFields.map((input) => (
-          <Input
-            key={input.label}
-            type={input.type}
-            label={input.label}
-            placeholder={input.placeholder}
-            onChange={(e) => educationalExpHandler(e, index)}
-            data={educationalExp}
-          />
-        ))}
+        {inputFields.map((inputField, i) => {
+          if (i <= 1) {
+            return (
+              <Input
+                key={inputField.label}
+                type={inputField.type}
+                label={inputField.label}
+                placeholder={inputField.placeholder}
+                onChange={(e) => educationalExpHandler(e, index)}
+                data={educationalExp}
+              />
+            );
+          }
+        })}
+        {inputFields.map((inputField, i) => {
+          if (i > 1) {
+            return (
+              <Input
+                key={inputField.label}
+                type="month"
+                label={inputField.label}
+                onChange={(e) => educationalExpHandler(e, index)}
+                data={educationalExp}
+              />
+            );
+          }
+        })}
       </div>
     );
   }
 
   return (
-    <div className="experience">
+    <div className="experience experience-submitted">
       <Icon
         onClick={(e) => educationalExpHandler(e, index, true)}
         className="remove no-print"
@@ -75,13 +95,21 @@ export default function EducationalExp({
         path={mdiMinusBox}
         size={1}
       />
-      {inputFields.map((inputField) => (
-        <DataField
-          key={inputField.label}
-          label={inputField.label}
-          data={inputField.data}
-        />
-      ))}
+      <p className="from-to">
+        {formatDate(inputFields[2].data)} &mdash;{' '}
+        {formatDate(inputFields[3].data)}
+      </p>
+      {inputFields.map((inputField, i) => {
+        if (i < 2) {
+          return (
+            <DataField
+              key={inputField.label}
+              label={inputField.label}
+              data={inputField.data}
+            />
+          );
+        }
+      })}
     </div>
   );
 }

@@ -2,6 +2,7 @@ import Input from './Input';
 import DataField from './DataField';
 import Icon from '@mdi/react';
 import { mdiMinusBox } from '@mdi/js';
+import { formatDate } from '../utils';
 import '../styles/PracticalExp.css';
 
 /**
@@ -24,31 +25,31 @@ export default function PracticalExp({
 }) {
   const inputFields = [
     {
-      label: 'company name',
-      placeholder: 'e.g., TechCorp',
-      data: practicalExp.company,
-    },
-    {
       label: 'position title',
       placeholder: 'e.g., Software Engineer',
       data: practicalExp.position,
     },
+    {
+      label: 'company name',
+      placeholder: 'e.g., TechCorp',
+      data: practicalExp.company,
+    },
     { label: 'main responsibilities', data: practicalExp.responsibilities },
     {
       label: 'from',
-      placeholder: 'e.g., 2020',
       data: practicalExp.from,
     },
     {
       label: 'to',
-      placeholder: 'e.g., 2023',
       data: practicalExp.to,
     },
   ];
 
   if (isEditingPracticalExp) {
+    const id = `id-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
+
     return (
-      <div className="experience" data-index={index}>
+      <div className="experience experience-editing" data-index={index}>
         <Icon
           onClick={(e) => practicalExpHandler(e, index, true)}
           className="remove no-print"
@@ -71,16 +72,16 @@ export default function PracticalExp({
           }
         })}
         <div className="field">
-          <label htmlFor="responsibilities">main responsibilities</label>
+          <label htmlFor={id}>main responsibilities</label>
           <textarea
             value={practicalExp.responsibilities}
             className="responsibilities"
             name="responsibilities"
-            id="responsibilities"
-            placeholder="e.g., Developed web apps"
+            id={id}
+            placeholder="e.g., Developed web apps.&#10;&#10;Note: Separate your responsibilities with newlines to display as bullet points."
             onChange={(e) => practicalExpHandler(e, index)}
-            aria-required='true'
-            autoComplete='on'
+            aria-required="true"
+            autoComplete="on"
           ></textarea>
         </div>
         {inputFields.map((inputField, i) => {
@@ -88,9 +89,8 @@ export default function PracticalExp({
             return (
               <Input
                 key={inputField.label}
-                type="number"
+                type="month"
                 label={inputField.label}
-                placeholder={inputField.placeholder}
                 onChange={(e) => practicalExpHandler(e, index)}
                 data={practicalExp}
               />
@@ -102,7 +102,7 @@ export default function PracticalExp({
   }
 
   return (
-    <div className="experience">
+    <div className="experience experience-submitted">
       <Icon
         onClick={(e) => practicalExpHandler(e, index, true)}
         className="remove no-print"
@@ -110,13 +110,21 @@ export default function PracticalExp({
         path={mdiMinusBox}
         size={1}
       />
-      {inputFields.map((inputField) => (
-        <DataField
-          key={inputField.label}
-          label={inputField.label}
-          data={inputField.data}
-        />
-      ))}
+      <p className="from-to">
+        {formatDate(inputFields[3].data)} &mdash;{' '}
+        {formatDate(inputFields[4].data)}
+      </p>
+      {inputFields.map((inputField, i) => {
+        if (i < 3) {
+          return (
+            <DataField
+              key={inputField.label}
+              label={inputField.label}
+              data={inputField.data}
+            />
+          );
+        }
+      })}
     </div>
   );
 }

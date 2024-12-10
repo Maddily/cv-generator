@@ -58,13 +58,12 @@ export default function GeneralInfo({
 
   return (
     <div className="general">
-      {inputFields.map((inputField) => (
-        <DataField
-          key={inputField.label}
-          label={inputField.label}
-          data={inputField.data}
-        />
-      ))}
+      <DataField label="name" data={generalInfo.name} />
+      <div className="contact-details">
+        <DataField label="email address" data={generalInfo.email} />
+        <span>|</span>
+        <DataField label="phone number" data={generalInfo.phone} />
+      </div>
     </div>
   );
 }

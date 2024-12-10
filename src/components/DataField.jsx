@@ -8,10 +8,20 @@ import '../styles/DataField.css'
  * @returns {JSX.Element}
  */
 export default function DataField({ label, data }) {
+  let points, list;
+  if (label.split(' ')[1] === 'responsibilities') {
+    points = data.split('\n');
+    list = (
+      <ul>
+        {points.map(point => (
+          <li key={point}>{point}</li>
+        ))}
+      </ul>
+    );
+  }
   return (
     <div className="data-field">
-      <span className="label">{label}:</span>
-      <span className="data">{data}</span>
+      <span className={'data' + ' ' + label.split(' ')[0]}>{points ? list : data}</span>
     </div>
   );
 }

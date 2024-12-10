@@ -59,9 +59,9 @@ export default function Fieldset({
    * @returns {JSX.Element}
    */
   const displayAddButton = () => {
-    if (legend.split(' ')[1] === 'experience') {
+    if (legend === 'education' || legend === 'experience') {
       const title =
-        legend.split(' ')[0] === 'educational'
+        legend === 'education'
           ? 'Add education'
           : 'Add position';
 
@@ -87,16 +87,17 @@ export default function Fieldset({
   const addMoreExperience = () => {
     let editButton;
 
-    if (legend.split(' ')[0] === 'educational') {
-      editButton = document.querySelector('[data-exp="educational"]');
+    if (legend === 'education') {
+      editButton = document.querySelector('[data-exp="education"]');
 
       addEducationalExpHandler({
         school: '',
         title: '',
-        date: '',
+        from: '',
+        to: '',
       });
     } else {
-      editButton = document.querySelector('[data-exp="practical"]');
+      editButton = document.querySelector('[data-exp="experience"]');
 
       addPracticalExpHandler({
         company: '',
@@ -107,12 +108,12 @@ export default function Fieldset({
       });
     }
 
-    editButton.click();
+    editButton?.click();
   };
 
   return (
     <fieldset>
-      <legend>{legend}</legend>
+      <legend className={legend.split(' ')[0] === 'contact' ? 'contact' : undefined}><span className='first-letter'>{legend[0]}</span><span className='remaining-letters'>{legend.slice(1)}</span></legend>
       <div className="fields">{children}</div>
       {displayAddButton()}
       <div className="buttons">

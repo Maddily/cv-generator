@@ -1,37 +1,43 @@
 .data-field {
-  padding: 0 40px 10px 10px;
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-bottom: 1px solid #dddddd;
   text-align: left;
+  font-size: 0.99rem;
+  color: #141414;
+  font-weight: 500;
 }
 
-.data-field:last-of-type {
-  border-bottom: none;
-}
-
-.label {
-  text-transform: capitalize;
+.data-field:first-of-type {
+  font-size: 1.3rem;
   font-weight: bold;
+  color: #000;
+  transform: scaleY(0.9);
+}
+
+.data-field:nth-of-type(2) {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-top: -5px;
+}
+
+.main {
+  margin-top: -10px;
+  margin-bottom: -10px;
 }
 
 @media (min-width: 460px) {
   .data-field {
-    padding: 0 20px 10px;
+    padding: 0 20px 0;
     flex-direction: row;
     justify-content: space-between;
     gap: 20px;
-  }
-
-  .data {
-    text-align: right;
   }
 }
 
 @media (min-width: 600px) {
   .data-field {
-    padding: 0 30px 10px;
     gap: 50px;
   }
 }
@@ -50,18 +56,7 @@
 
 @media (min-width: 900px) {
   .data-field {
-    padding: 0 50px 10px;
     gap: 130px;
-  }
-}
-
-@media (min-width: 1000px) {
-  .data-field {
-    padding: 0 70px 10px;
-  }
-
-  .data {
-    max-width: 300px;
   }
 }
 

@@ -18,13 +18,14 @@ export default function Input({
   data
 }) {
   const name = label.split(' ')[0];
+  const id = `id-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
 
   return (
     <div className="field">
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={id}>{label}</label>
       <input
         value={data[name]}
-        id={name}
+        id={id}
         type={type}
         name={name}
         placeholder={placeholder}
