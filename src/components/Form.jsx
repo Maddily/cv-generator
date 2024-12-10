@@ -30,45 +30,25 @@ export default function Form({
   setIsEditingPracticalExpCaller,
 }) {
   const [generalInfo, setgeneralInfo] = useState({
-    name: 'Jake Ryan',
-    email: 'jake@su.edu',
-    phone: '123-456-7890',
+    name: '',
+    email: '',
+    phone: '',
   });
   const [educationalExp, setEducationalExp] = useState([
     {
-      school: 'Southwestern University',
-      title: 'Bachelor of Arts in Computer Science, Minor in Business',
-      from: '2018-08',
-      to: '2021-05',
+      school: '',
+      title: '',
+      from: '',
+      to: '',
     },
-    {
-      school: 'Blinn College',
-      title: "Associate's in Liberal Arts",
-      from: '2014-08',
-      to: '2018-05',
-    }
   ]);
   const [practicalExp, setPracticalExp] = useState([
     {
-      company: 'Texas A&M University',
-      position: 'Undergraduate Research Assistant',
-      responsibilities: 'Developed a REST API using FastAPI and PostgreSQL to store data from learning management systems\nDeveloped a full-stack web application using Flask, React, PostgreSQL and Docker to analyze GitHub data\nExplored ways to visualize GitHub collaboration in a classroom setting',
-      from: '2020-06',
-      to: '2024-12',
-    },
-    {
-      company: 'Southwestern University',
-      position: 'Information Technology Support Specialist',
-      responsibilities: 'Communicate with managers to set up campus computers used on campus\nAssess and troubleshoot computer problems brought by students, faculty and staff\nMaintain upkeep of computers, classroom equipment, and 200 printers across campus',
-      from: '2018-09',
-      to: '2024-12',
-    },
-    {
-      company: 'Southwestern University',
-      position: 'Artificial Intelligence Research Assistant',
-      responsibilities: 'Explored methods to generate video game dungeons based off of The Legend of Zelda\nDeveloped a game in Java to test the generated dungeons\nContributed 50K+ lines of code to an established codebase via Git\nConducted a human subject study to determine which video game dungeon generation technique is enjoyable\nWrote an 8-page paper and gave multiple presentations on-campus\nPresented virtually to the World Conference on Computational Intelligence',
-      from: '2019-05',
-      to: '2019-07',
+      company: '',
+      position: '',
+      responsibilities: '',
+      from: '',
+      to: '',
     },
   ]);
 
@@ -119,10 +99,19 @@ export default function Form({
     return Object.values(exp).every((value) => value !== '');
   });
 
+  const generalLegend = document.querySelector('.contact');
+  if (generalLegend) {
+    if (!isEditingGeneralInfo) {
+      generalLegend.style.display = 'none';
+    } else {
+      generalLegend.style.display = 'block';
+    }
+  }
+
   return (
     <form>
       <Fieldset
-        legend="general information"
+        legend="contact information"
         filled={generalInfoFilled}
         isEditing={isEditingGeneralInfo}
         setIsEditingCaller={setIsEditingGeneralInfoCaller}
