@@ -131,6 +131,7 @@ button {
   border-color: #213547;
   padding: 5px 15px;
   transition: background-color 200ms, color 200ms, border-color 200ms;
+  font-weight: 500;
 }
 
 button:enabled:hover {
