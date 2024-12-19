@@ -53,8 +53,21 @@ header {
   color: #fff;
 }
 
+.instructions {
+  margin: 0 auto;
+  max-width: 700px;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  color: #555;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
 form {
   max-width: 900px;
+  margin-top: 1rem;
 }
 
 .generate-cv {

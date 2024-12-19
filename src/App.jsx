@@ -58,6 +58,11 @@ function App() {
           Generate CV
         </a>
       </header>
+      <p className="instructions no-print">
+        Fill out each section of the form and generate your CV. The information
+        you enter is saved in your browser, ensuring it&apos;s available if you
+        refresh or revisit this page later.
+      </p>
       <Form
         isEditingGeneralInfo={isEditingGeneralInfo}
         isEditingEducationalExp={isEditingEducationalExp}
