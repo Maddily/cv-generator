@@ -14,7 +14,7 @@ fieldset,
 }
 
 fieldset {
-  padding: 3px 5px 0;
+  padding-top: 3px;
   margin-bottom: 5px;
   border: 0;
 }
@@ -51,7 +51,11 @@ legend {
 }
 
 .data-field .name {
-  font-size: 2.5rem;
+  font-size: 2rem;
+}
+
+.data-field .email {
+  font-size: 1rem;
 }
 
 .data-field .phone {
@@ -148,6 +152,18 @@ input, textarea {
 }
 
 @media (min-width: 460px) {
+  fieldset {
+    padding: 3px 5px 0;
+  }
+
+  .data-field .name {
+    font-size: 2.5rem;
+  }
+
+  .data-field .email {
+    font-size: 1.3rem;
+  }
+
   .buttons {
     padding-right: 20px;
   }
