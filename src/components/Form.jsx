@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Fieldset from './Fieldset';
 import GeneralInfo from './GeneralInfo';
 import EducationalExp from './EducationalExp';
@@ -52,6 +52,17 @@ export default function Form({
     },
   ]);
 
+  // On component mount, retrieve data from local storage
+  useEffect(() => {
+    const storedGeneralInfo = localStorage.getItem('generalInfo');
+    const storedEducationalExp = localStorage.getItem('educationalExp');
+    const storedPracticalExp = localStorage.getItem('practicalExp');
+
+    storedGeneralInfo && setgeneralInfo(JSON.parse(storedGeneralInfo));
+    storedEducationalExp && setEducationalExp(JSON.parse(storedEducationalExp));
+    storedPracticalExp && setPracticalExp(JSON.parse(storedPracticalExp));
+  }, []);
+
   /**
    * Handles updating generalInfo state when the input is changed.
    *
@@ -59,7 +70,10 @@ export default function Form({
    */
   const handleGeneralInfoChange = (e) => {
     const key = e.target.name;
-    setgeneralInfo({ ...generalInfo, [key]: e.target.value });
+    const updatedGeneralInfo = { ...generalInfo, [key]: e.target.value };
+
+    setgeneralInfo(updatedGeneralInfo);
+    localStorage.setItem('generalInfo', JSON.stringify(updatedGeneralInfo));
   };
 
   /**
@@ -72,9 +86,18 @@ export default function Form({
    * @param {boolean} remove - Indicates if the requested change is to remove
    * an experience object.
    */
-  const handleExpChange = (e, index, expType, setExpType, remove = false) => {
+  const handleExpChange = (
+    e,
+    index,
+    expType,
+    setExpType,
+    type,
+    remove = false
+  ) => {
     if (remove) {
-      setExpType(expType.toSpliced(index, 1));
+      const updatedExpType = expType.toSpliced(index, 1);
+      setExpType(updatedExpType);
+      localStorage.setItem(type, JSON.stringify(updatedExpType));
       return;
     }
 
@@ -85,6 +108,7 @@ export default function Form({
       [key]: e.target.value,
     };
     setExpType(newExp);
+    localStorage.setItem(type, JSON.stringify(newExp));
   };
 
   const generalInfoFilled = Object.values(generalInfo).every(
@@ -143,6 +167,7 @@ export default function Form({
                   index,
                   educationalExp,
                   setEducationalExp,
+                  'educationalExp',
                   remove
                 )
               }
@@ -167,7 +192,14 @@ export default function Form({
               index={i}
               isEditingPracticalExp={isEditingPracticalExp}
               practicalExpHandler={(e, index, remove) =>
-                handleExpChange(e, index, practicalExp, setPracticalExp, remove)
+                handleExpChange(
+                  e,
+                  index,
+                  practicalExp,
+                  setPracticalExp,
+                  'practicalExp',
+                  remove
+                )
               }
               practicalExp={exp}
             />
