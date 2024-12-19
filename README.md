@@ -7,8 +7,9 @@ CV Generator is hosted on Netlify. You can access it [here](https://cvarchitect.
 ## Features
 - Live preview of the CV
 - Downloadable PDF of the CV
+- Local Storage: Automatically saves your progress so you can continue editing later
 - Responsive design for all screen sizes
-- Accessibility: Follows web accessibility guidelines to ensure a usable experience for all users.
+- Accessibility: Follows web accessibility guidelines to ensure a usable experience for all users
 
 ## Tech Stack
 - **Vite**: For fast development and bundling.
