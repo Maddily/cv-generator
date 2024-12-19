@@ -13,8 +13,8 @@ export default function DataField({ label, data }) {
     points = data.split('\n');
     list = (
       <ul>
-        {points.map(point => (
-          <li key={point}>{point}</li>
+        {points.map((point, i) => (
+          <li key={point + i}>{point}</li>
         ))}
       </ul>
     );
