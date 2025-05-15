@@ -1,11 +1,11 @@
 # CV Generator
-This is a simple CV generator built with React and Vite. Users can fill in their details, see a live preview of their CV, and print/download it. The main goal was to practice React concepts, like state management and creating reusable components, while building something practical.
+This is a simple CV generator built with React and Vite. Users can fill in their details, then click a button under each section to toggle a preview showing how that part will look in the final CV. They can also print or download the completed CV. The main goal was to practice React concepts, like state management and creating reusable components, while building something practical.
 
 ## How to Access CV Generator
 CV Generator is hosted on Netlify. You can access it [here](https://cvarchitect.netlify.app/).
 
 ## Features
-- Live preview of the CV
+- Preview mode for each CV section, allowing users to switch between edit and formatted views
 - Downloadable PDF of the CV
 - Local Storage: Automatically saves your progress so you can continue editing later
 - Responsive design for all screen sizes
